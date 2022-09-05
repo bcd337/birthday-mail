@@ -18,24 +18,6 @@ USE `birthday`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `mail_birthday`
---
-
-DROP TABLE IF EXISTS `mail_birthday`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mail_birthday` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int unsigned DEFAULT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id_idx` (`user_id`),
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `user`
 --
 
@@ -50,6 +32,24 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `timezone` varchar(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `mail_birthday`
+--
+
+DROP TABLE IF EXISTS `mail_birthday`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `mail_birthday` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
